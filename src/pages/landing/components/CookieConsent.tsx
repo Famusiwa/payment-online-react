@@ -29,7 +29,7 @@ const CookieConsent: React.FC = () => {
           const expiredTime = data?.data?.expiresAt;
           localStorage.setItem(
             "expiredTime",
-            convertToTimestamp(expiredTime).toString()
+            convertToTimestamp(expiredTime).toString(),
           );
         }
       }
@@ -63,7 +63,10 @@ const CookieConsent: React.FC = () => {
 
   return (
     <>
-      <div className="fixed inset-0 bg-black/60 z-60"></div>
+      <div
+        className="fixed inset-0 bg-black/60 z-60"
+        onClick={handleAccept} // clicking overlay dismisses it
+      ></div>
 
       <div className="fixed top-[45%] left-0 right-0 z-70 bg-gray-800 text-white px-6 py-4 flex justify-between items-center shadow-lg">
         <span className="text-sm">{cookieText}</span>

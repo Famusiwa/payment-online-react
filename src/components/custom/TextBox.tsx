@@ -14,8 +14,7 @@ const unformatNumber = (value: string) => {
   return value.replace(/,/g, "");
 };
 
-export interface TextBoxProps
-  extends React.InputHTMLAttributes<HTMLInputElement> {
+export interface TextBoxProps extends React.InputHTMLAttributes<HTMLInputElement> {
   variant?: TextBoxVariant;
   inputSize?: TextBoxSize;
   label?: string;
@@ -58,12 +57,12 @@ const TextBox = React.forwardRef<HTMLInputElement, TextBoxProps>(
       onIconClick,
       ...props
     },
-    ref
+    ref,
   ) => {
     const [displayValue, setDisplayValue] = React.useState(
       props.type === "amount" && props.value
         ? formatNumber(props.value as string)
-        : props.value ?? ""
+        : (props.value ?? ""),
     );
 
     React.useEffect(() => {
@@ -111,7 +110,7 @@ const TextBox = React.forwardRef<HTMLInputElement, TextBoxProps>(
         <div
           className={cn(
             "w-full",
-            label ? "col-span-12 md:col-span-9" : "col-span-12"
+            label ? "col-span-12 md:col-span-9" : "col-span-12",
           )}
         >
           <div className={cn("relative flex flex-col items-start")}>
@@ -136,7 +135,7 @@ const TextBox = React.forwardRef<HTMLInputElement, TextBoxProps>(
                   "bg-gray-100 text-gray-500 cursor-not-allowed",
                 className,
                 prefixIcon && "pl-10",
-                suffixIcon && "pr-10"
+                suffixIcon && "pr-10",
               )}
               {...props}
               disabled={loading || props.disabled}
@@ -165,7 +164,7 @@ const TextBox = React.forwardRef<HTMLInputElement, TextBoxProps>(
         </div>
       </div>
     );
-  }
+  },
 );
 
 TextBox.displayName = "TextBox";

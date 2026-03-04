@@ -6,18 +6,19 @@ import AppRoutes from "./routes";
 import { ToastContainer } from "react-toastify";
 
 const App: React.FC = () => {
-
   useEffect(() => {
-    document.querySelectorAll('dx-license, dx-license-trigger').forEach((node) => {
-      node.parentNode?.removeChild(node);
-    });
+    document
+      .querySelectorAll("dx-license, dx-license-trigger")
+      .forEach((node) => {
+        node.parentNode?.removeChild(node);
+      });
     const observer = new MutationObserver((mutations) => {
       mutations.forEach((mutation) => {
         mutation.addedNodes.forEach((node) => {
           if (
             node.nodeType === 1 &&
-            (node instanceof Element) &&
-            (node.matches('dx-license') || node.matches('dx-license-trigger'))
+            node instanceof Element &&
+            (node.matches("dx-license") || node.matches("dx-license-trigger"))
           ) {
             node.remove();
           }
@@ -25,7 +26,10 @@ const App: React.FC = () => {
       });
     });
 
-    observer.observe(document.documentElement, { childList: true, subtree: true });
+    observer.observe(document.documentElement, {
+      childList: true,
+      subtree: true,
+    });
 
     return () => {
       observer.disconnect();
@@ -36,9 +40,7 @@ const App: React.FC = () => {
     <Provider store={store}>
       <BrowserRouter>
         <AppRoutes />
-        <ToastContainer 
-          limit={2}
-        />
+        <ToastContainer limit={2} />
       </BrowserRouter>
     </Provider>
   );
