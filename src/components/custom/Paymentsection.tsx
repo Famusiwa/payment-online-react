@@ -1,9 +1,9 @@
 import React from "react";
 import type { ModalType } from "@/pages/Landingpage";
-import PayerIdCard from "@/components/custom/Payeridcard";
+import PayerIdCard from "./PayeridCard";
 import AssessmentCard from "@/components/custom/AssessmentCardl";
 import PayerNameCard from "@/components/custom/PayerNameCard";
-import PayerIdModal from "./PayeridModal";
+import PayerIdModal from "./PayerIdModal";
 import AssessmentModal from "@/components/custom/AssessmentModal";
 import PayerNameModal from "@/components/custom/PayerNameModal";
 
