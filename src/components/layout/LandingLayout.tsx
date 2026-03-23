@@ -1,7 +1,7 @@
 import React from "react";
 import { Outlet } from "react-router-dom";
 import CookieConsent from "@/pages/landing/components/CookieConsent";
-import { logoImage } from "@/lib/env";
+import logoImage from "@/assets/images/state-logo.png";
 
 const LandingLayout: React.FC = () => {
   return (
